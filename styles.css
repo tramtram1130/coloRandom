@@ -1,17 +1,12 @@
 body {
-  /* display: grid;
-  grid-template-columns:  [column1-start] 33% [column1-end column2-start] 33% [column2-end column3-start] 33%;
-  grid-template-rows: [row1-start] 33% [row1-end row2-start] 33% [row2-end row3-start] 33%; */
   display: flex;
 }
 
-/* .flex-body {
-  display: flex;
-  justify-content: center;
-} */
+
 .colo-random-main {
-  /* flex-grow: 1; */
-  background-color: red;
+
+  border-color: #B2C67B;
+  border-style: solid;
   flex-basis: 75%;
   height: 98vh;
   display: flex;
@@ -21,31 +16,26 @@ body {
   flex-wrap: wrap;
 }
 .saved-section-container {
-  /* min-height: 400px; */
   height: auto;
   flex-grow: 1;
-  background-color: blue;
-  /* flex-basis: 33%; */
-
+  border-color: blue;
+  border-style: solid;
 }
 h1 {
-  /* grid-column-start: 1;
-  grid-column-end: span 2;
-  grid-row-start: 1;
-  grid-row-end: span 1; */
+
 }
 
 .color-box {
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   background-color: green;
-  /* margin-left: 5%; */
-  /* margin-right: 5%; */
-  /* flex-grow: 0; */
+  border-color: black;
+  border-style: inset;
 }
 .hex-code-container {
-  grid-row-start: 2;
+  width: 100%;
   display: flex;
+  justify-content: space-evenly;
 }
 
 .hex-code-buttons {
@@ -54,28 +44,34 @@ h1 {
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
-
 }
 
 .hex-code-buttons > button {
   height: 100px;
   width: 200px;
-  /* align-content: space-around; */
-  /* align-self:flex-end; */
-}
-/* .new-palette {
-  margin-right: 20px;
 }
 
-.save-palette {
-  margin-left: 20px;
-} */
 
 .saved-section-container {
-  /* grid-row-start: 3;
-  grid-row-end: 3; */
-  /* display: flex;
-  justify-content: space-evenly; */
+  flex-basis: 25%;
+  height: 98vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.saved-section {
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+}
+.saved-palettes {
+  background-color: purple;
+  height: auto;
+  width: 100px;
+  align-items: flex-end;
+  justify-content: center;
 }
 
 .hidden {
