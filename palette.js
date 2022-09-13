@@ -2,16 +2,8 @@ const Colors = require('./colors.js');
 
 class Palette {
   constructor() {
-    this.colors = this.newPalette();
+    this.colors = [new Colors, new Colors, new Colors, new Colors, new Colors];
     this.id = Date.now()
-  }
-
-  newPalette() {
-    var palette = [];
-    for (var i = 0; i < 5; i++) {
-      palette.push(new Colors);
-    }
-    return palette;
   }
 
   lockColor(color) {
@@ -33,9 +25,9 @@ class Palette {
 
 
 // Palette Tests
-// var newPalette = new Palette;
+var newPalette = new Palette;
 
-// console.log(newPalette);
+console.log(newPalette);
 
 // var color = newPalette.colors[1];
 
