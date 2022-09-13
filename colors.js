@@ -14,5 +14,3 @@ class Colors {
     return hexCode;
   }
 }
-
-module.exports = Colors;

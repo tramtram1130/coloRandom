@@ -21,6 +21,24 @@ var hexThree = document.getElementById('hex-three')
 var hexFour = document.getElementById('hex-four')
 var hexFive = document.getElementById('hex-five')
 
-var newPaletteButton = document.querySelector('new-palette')
-var saveButton = document.querySelector('save-palette')
-var savedPalettes = document.querySelector('saved-palettes')
+var newPaletteButton = document.querySelector('.new-palette')
+var saveButton = document.querySelector('.save-palette')
+var savedPalettes = document.querySelector('.saved-palettes')
+var hexCodeArray = document.querySelectorAll('.color-box')
+var hexCodeDisplay = document.querySelectorAll('.hex-code')
+
+console.log(hexCodeArray)
+newPaletteButton.addEventListener('click', displayPalette)
+
+var currentPalette = new Palette()
+
+function displayPalette() {
+  // for(var i = 0; i < currentPalette.colors.length; i++) {
+  //   currentPalette.colors[i] = new Colors
+  //   console.log(currentPalette.colors[i])
+  // }
+  currentPalette.refreshColors()
+  console.log(currentPalette.colors)
+
+}
+displayPalette()

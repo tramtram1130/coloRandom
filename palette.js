@@ -1,5 +1,3 @@
-const Colors = require('./colors.js');
-
 class Palette {
   constructor() {
     this.colors = [new Colors, new Colors, new Colors, new Colors, new Colors];
@@ -38,4 +36,3 @@ console.log(newPalette);
 // newPalette.refreshColors();
 
 // console.log(newPalette);
-
