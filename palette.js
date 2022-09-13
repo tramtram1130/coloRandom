@@ -1,4 +1,3 @@
-
 class Palette {
   constructor(colors) {
     this.colors = [colors, colors, colors, colors, colors]
