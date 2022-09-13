@@ -21,15 +21,29 @@ class Palette {
       }
     }
   }
+
+  refreshColors() {
+    for (var i = 0; i < this.colors.length; i++) {
+      if (this.colors[i].locked === false) {
+        this.colors[i] = new Colors;
+      }
+    }
+  }
 }
 
-var newPalette = new Palette;
 
-console.log(newPalette);
+// Palette Tests
+// var newPalette = new Palette;
 
-var color = newPalette.colors[1];
+// console.log(newPalette);
 
-newPalette.lockColor(color);
+// var color = newPalette.colors[1];
 
-console.log(newPalette.colors);
+// newPalette.lockColor(color);
+
+// console.log(newPalette.colors);
+
+// newPalette.refreshColors();
+
+// console.log(newPalette);
 
