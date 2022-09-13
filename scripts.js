@@ -42,6 +42,7 @@ function displayPalette() {
 
   for (var i = 0; i < hexCodeArray.length; i++) {
     hexCodeArray[i].style.backgroundColor = currentPalette.colors[i].hexCode
+    hexCodeDisplay[i].innerText = `${currentPalette.colors[i].hexCode}`
   }
 }
 displayPalette()

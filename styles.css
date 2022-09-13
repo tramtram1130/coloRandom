@@ -33,10 +33,34 @@ h1 {
   border-color: black;
   border-style: inset;
 }
-.hex-code-container {
+
+/* .hex-code-container {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
+} */
+
+.colors-container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  width: 100vh;
+}
+
+.color-box {
+  align-items: flex-start;
+  justify-items: space-between;
+}
+
+.hex-container {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.hex-code {
+  align-items: flex-end;
+  justify-items: center;
 }
 
 .hex-code-buttons {
