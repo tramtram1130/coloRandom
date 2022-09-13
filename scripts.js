@@ -40,5 +40,8 @@ function displayPalette() {
   currentPalette.refreshColors()
   console.log(currentPalette.colors)
 
+  for (var i = 0; i < hexCodeArray.length; i++) {
+    hexCodeArray[i].style.backgroundColor = currentPalette.colors[i].hexCode
+  }
 }
 displayPalette()

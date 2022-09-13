@@ -27,11 +27,11 @@ var newPalette = new Palette;
 
 console.log(newPalette);
 
-// var color = newPalette.colors[1];
+var color = newPalette.colors[1];
 
-// newPalette.lockColor(color);
+newPalette.lockColor(color);
 
-// console.log(newPalette.colors);
+console.log(newPalette.colors);
 
 // newPalette.refreshColors();
 
