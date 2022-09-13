@@ -15,9 +15,13 @@ var saveButton = document.querySelector('.save-palette')
 var savedPalettes = document.querySelector('.saved-palettes')
 var hexCodeArray = document.querySelectorAll('.color-box')
 var hexCodeDisplay = document.querySelectorAll('.hex-code')
+var colorContainer = document.querySelector('.colors-container')
+var savedSection = document.querySelector('.saved-section-container')
 
 console.log(hexCodeArray)
+window.addEventListener('load', displayPalette)
 newPaletteButton.addEventListener('click', displayPalette)
+saveButton.addEventListener('click', savePalette)
 
 var currentPalette = new Palette()
 
@@ -33,4 +37,12 @@ function displayPalette() {
     }
   }
 }
-displayPalette()
+
+function savePalette() {
+  var savedColorsContainer = document.createElement('div')
+  savedColorsContainer.classList.add('saved-container')
+  for (var i = 0; i < currentPalette.colors.length; i++){
+    var copyColor = document.createElement('div')
+    copyColor.classList.add('saved-box')
+  }
+}
