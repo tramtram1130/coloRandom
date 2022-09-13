@@ -13,9 +13,23 @@ class Palette {
     }
     return palette;
   }
+
+  lockColor(color) {
+    for (var i = 0; i < this.colors.length; i++) {
+      if (this.colors[i].hexCode === color.hexCode) {
+      this.colors[i].locked = true;
+      }
+    }
+  }
 }
 
 var newPalette = new Palette;
 
 console.log(newPalette);
+
+var color = newPalette.colors[1];
+
+newPalette.lockColor(color);
+
+console.log(newPalette.colors);
 
