@@ -6,7 +6,7 @@ class Colors {
 
   randomHexCode() {
     var characters = ['A', 'B', 'C', 'D', 'E', 'F', 0 , 1, 2, 3, 4, 5, 6, 7, 8, 9];
-    var hexCode = '';
+    var hexCode = '#';
     for (var i = 0; i < 6; i++) {
       var randomNum = Math.floor(Math.random() * 16);
       hexCode += characters[randomNum];
@@ -14,5 +14,3 @@ class Colors {
     return hexCode;
   }
 }
-
-module.exports = Colors;
