@@ -41,8 +41,12 @@ function displayPalette() {
 function savePalette() {
   var savedColorsContainer = document.createElement('div')
   savedColorsContainer.classList.add('saved-container')
+  savedSection.appendChild(savedColorsContainer)
   for (var i = 0; i < currentPalette.colors.length; i++){
     var copyColor = document.createElement('div')
     copyColor.classList.add('saved-box')
+    console.log(copyColor.style.backgroundColor)
+    copyColor.style.backgroundColor = currentPalette.colors[i].hexcode
+    savedColorsContainer.appendChild(copyColor)
   }
 }
