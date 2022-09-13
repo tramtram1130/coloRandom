@@ -92,12 +92,30 @@ h1 {
   justify-content: center;
   width: 100%;
 }
+
 .saved-palettes {
   background-color: purple;
   height: auto;
   width: 100px;
   align-items: flex-end;
   justify-content: center;
+}
+
+.saved-container {
+  align-content: flex-start;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.saved-box {
+  align-items: flex-start;
+  justify-items: space-between;
+  height: 50px;
+  width: 50px;
+  background-color: green;
+  border-color: black;
+  border-style: inset;
 }
 
 .hidden {
