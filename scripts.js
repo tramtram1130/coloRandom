@@ -1,14 +1,3 @@
-/* ITERATION 2
-window event listener with a function  displayPalette()
-CREATE global var palette = new Palette
-function displayPalette()
-call global var
-then innerText to display new instance
-
-
-eventlistener on newPalette button (querySelector)
-*/
-
 var one = document.getElementById('one')
 var two = document.getElementById('two')
 var three = document.getElementById('three')
@@ -33,16 +22,15 @@ newPaletteButton.addEventListener('click', displayPalette)
 var currentPalette = new Palette()
 
 function displayPalette() {
-  // for(var i = 0; i < currentPalette.colors.length; i++) {
-  //   currentPalette.colors[i] = new Colors
-  //   console.log(currentPalette.colors[i])
-  // }
   currentPalette.refreshColors()
-  console.log(currentPalette.colors)
-
+//  console.log(currentPalette.colors)
   for (var i = 0; i < hexCodeArray.length; i++) {
     hexCodeArray[i].style.backgroundColor = currentPalette.colors[i].hexCode
-    hexCodeDisplay[i].innerText = `${currentPalette.colors[i].hexCode}`
+    if (currentPalette.colors[i].locked === true) {
+      hexCodeDisplay[i].innerText = currentPalette.colors[i].hexCode + String.fromCodePoint(0x1F512)
+    }else{
+      hexCodeDisplay[i].innerText = currentPalette.colors[i].hexCode + String.fromCodePoint(0x1F513) 
+    }
   }
 }
 displayPalette()
