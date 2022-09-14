@@ -46,7 +46,7 @@ function savePalette() {
     var copyColor = document.createElement('div')
     copyColor.classList.add('saved-box')
     console.log(copyColor.style.backgroundColor)
-    copyColor.style.backgroundColor = currentPalette.colors[i].hexcode
+    copyColor.style.backgroundColor = currentPalette.colors[i].hexCode
     savedColorsContainer.appendChild(copyColor)
   }
 }
