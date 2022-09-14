@@ -1,14 +1,14 @@
-var one = document.getElementById('one');
-var two = document.getElementById('two');
-var three = document.getElementById('three');
-var four = document.getElementById('four');
-var five = document.getElementById('five');
+// var one = document.getElementById('one');
+// var two = document.getElementById('two');
+// var three = document.getElementById('three');
+// var four = document.getElementById('four');
+// var five = document.getElementById('five');
 
-var hexOne = document.getElementById('hex-one');
-var hexTwo = document.getElementById('hex-two');
-var hexThree = document.getElementById('hex-three');
-var hexFour = document.getElementById('hex-four');
-var hexFive = document.getElementById('hex-five');
+// var hexOne = document.getElementById('hex-one');
+// var hexTwo = document.getElementById('hex-two');
+// var hexThree = document.getElementById('hex-three');
+// var hexFour = document.getElementById('hex-four');
+// var hexFive = document.getElementById('hex-five');
 
 var newPaletteButton = document.querySelector('.new-palette');
 var saveButton = document.querySelector('.save-palette');
@@ -22,6 +22,7 @@ window.addEventListener('load', displayPalette);
 newPaletteButton.addEventListener('click', displayPalette);
 saveButton.addEventListener('click', savePalette);
 colorContainer.addEventListener('click', lockColor);
+savedSection.addEventListener('click', deletePalette);
 
 
 var currentPalette = new Palette();
@@ -37,14 +38,14 @@ function displayPalette() {
       hexCodeDisplay[i].innerText = currentPalette.colors[i].hexCode + String.fromCodePoint(0x1F513)
     }
   }
-}
+};
 
 function savePalette() {
   displaySavedPalette();
   savedPalettesList.push(currentPalette);
   currentPalette = new Palette;
   displayPalette();
-}
+};
 
 function displaySavedPalette() {
   var savedColorsContainer = document.createElement('div')
@@ -53,14 +54,15 @@ function displaySavedPalette() {
 
   for (var i = 0; i < currentPalette.colors.length; i++){
     var copyColor = document.createElement('div');
-    copyColor.classList.add('saved-box');;
+    copyColor.classList.add('saved-box');
     copyColor.style.backgroundColor = currentPalette.colors[i].hexCode;
     savedColorsContainer.appendChild(copyColor);
   }
 
-  var p = document.createElement('p');
-  p.innerText = String.fromCodePoint(128465);
-  savedColorsContainer.appendChild(p);
+  var button = document.createElement('button');
+  button.id = currentPalette.id
+  button.innerText = String.fromCodePoint(128465);
+  savedColorsContainer.appendChild(button);
 }
 
 function lockColor(event) {
@@ -94,5 +96,16 @@ function lockColor(event) {
   else {
     hexCodeDisplay[index].innerText = colorToLock.hexCode + String.fromCodePoint(0x1F513)
     currentPalette.colors[index].locked = false
+  }
+}
+
+function deletePalette(event) {
+  for (var i = 0; i < savedPalettesList.length; i++) {
+    console.log(savedPalettesList[i].id)
+    console.log(event.target.parentNode)
+    if (savedPalettesList[i].id === Number(event.target.id)) {
+      savedPalettesList.splice(i, 1)
+      event.target.parentNode.remove()
+    }
   }
 }
