@@ -24,6 +24,7 @@ newPaletteButton.addEventListener('click', displayPalette)
 saveButton.addEventListener('click', savePalette)
 
 var currentPalette = new Palette();
+var savedPalettesList = [];
 
 function displayPalette() {
   currentPalette.refreshColors()
@@ -33,7 +34,7 @@ function displayPalette() {
     if (currentPalette.colors[i].locked === true) {
       hexCodeDisplay[i].innerText = currentPalette.colors[i].hexCode + String.fromCodePoint(0x1F512)
     }else{
-      hexCodeDisplay[i].innerText = currentPalette.colors[i].hexCode + String.fromCodePoint(0x1F513) 
+      hexCodeDisplay[i].innerText = currentPalette.colors[i].hexCode + String.fromCodePoint(0x1F513)
     }
   }
 }
@@ -48,6 +49,7 @@ function savePalette() {
     copyColor.style.backgroundColor = currentPalette.colors[i].hexCode
     savedColorsContainer.appendChild(copyColor)
   }
+  savedPalettesList.push(currentPalette)
   var p = document.createElement('p');
   p.innerText = String.fromCodePoint(128465); // U+fe0f U+1f5d1
   savedColorsContainer.appendChild(p);
