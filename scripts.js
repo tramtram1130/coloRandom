@@ -23,7 +23,7 @@ window.addEventListener('load', displayPalette)
 newPaletteButton.addEventListener('click', displayPalette)
 saveButton.addEventListener('click', savePalette)
 
-var currentPalette = new Palette()
+var currentPalette = new Palette();
 
 function displayPalette() {
   currentPalette.refreshColors()
@@ -45,8 +45,13 @@ function savePalette() {
   for (var i = 0; i < currentPalette.colors.length; i++){
     var copyColor = document.createElement('div')
     copyColor.classList.add('saved-box')
-    console.log(copyColor.style.backgroundColor)
     copyColor.style.backgroundColor = currentPalette.colors[i].hexCode
     savedColorsContainer.appendChild(copyColor)
   }
+  var p = document.createElement('p');
+  p.innerText = String.fromCodePoint(128465); // U+fe0f U+1f5d1
+  savedColorsContainer.appendChild(p);
+
+  currentPalette = new Palette;
+  displayPalette();
 }
