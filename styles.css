@@ -75,8 +75,9 @@ h1 {
 }
 
 button:hover {
-  background-color: seagreen;
-  color: white;
+  background: rgb(255,0,0);
+  background: linear-gradient(45deg, rgba(255,0,0,1) 10%, rgba(255,255,0,1) 26%, rgba(0,255,0,1) 42%, rgba(0,255,255,1) 58%, rgba(0,0,255,1) 74%, rgba(255,0,255,1) 90%);
+  color: black;
 }
 
 .saved-section-container {
