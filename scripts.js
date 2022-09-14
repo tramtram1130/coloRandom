@@ -57,7 +57,7 @@ function displaySavedPalette() {
     copyColor.style.backgroundColor = currentPalette.colors[i].hexCode;
     savedColorsContainer.appendChild(copyColor);
   }
-  
+
   var p = document.createElement('p');
   p.innerText = String.fromCodePoint(128465);
   savedColorsContainer.appendChild(p);
@@ -85,6 +85,12 @@ function lockColor(event) {
   }
 
   var colorToLock = currentPalette.colors[index];
-  currentPalette.lockColor(colorToLock);
-  hexCodeDisplay[index].innerText = colorToLock.hexCode + String.fromCodePoint(0x1F512)
+  if(currentPalette.colors[index].locked === false) {
+    hexCodeDisplay[index].innerText = colorToLock.hexCode + String.fromCodePoint(0x1F512)
+    currentPalette.colors[index].locked = true    
+  }
+  else {
+    hexCodeDisplay[index].innerText = colorToLock.hexCode + String.fromCodePoint(0x1F513)
+    currentPalette.colors[index].locked = false
+  }
 }
