@@ -82,12 +82,14 @@ function lockColor(event) {
       break;
     case "five":
       index = 4;
+      break;
+    default: return
   }
 
   var colorToLock = currentPalette.colors[index];
   if(currentPalette.colors[index].locked === false) {
     hexCodeDisplay[index].innerText = colorToLock.hexCode + String.fromCodePoint(0x1F512)
-    currentPalette.colors[index].locked = true    
+    currentPalette.colors[index].locked = true
   }
   else {
     hexCodeDisplay[index].innerText = colorToLock.hexCode + String.fromCodePoint(0x1F513)
