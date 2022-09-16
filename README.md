@@ -6,7 +6,9 @@ This application randomizes a color palette for the user, anyone who needs a col
 In order to access and clone the repository, a user can fork the repository from https://github.com/zacwalters4/coloRandom. From the forked repository, click the green 'code' button and copy the https link. In the local terminal, type "git clone" followed by the https link. At this stage the application can be opened in a local browser by typing in terminal "open index.html".
 
 ### Preview of App:
-![coloRandom](https://turingschool.slack.com/files/U03H3MW46KZ/F042VMA5JHJ/ezgif-2-0f8130f4ee.gif)
+![coloRandom-preview](https://user-images.githubusercontent.com/22826695/190801015-eca92101-bbb4-45ad-8f89-9178d5f94d03.gif)
+
+<!-- ![coloRandom](https://turingschool.slack.com/files/U03H3MW46KZ/F042VMA5JHJ/ezgif-2-0f8130f4ee.gif) -->
 
 ### Context:
 We are currently students in Mod 1 of the Turing Front-End program. The build for this application took us 12 hours.
