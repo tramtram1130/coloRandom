@@ -1,34 +1,23 @@
-var one = document.getElementById('one');
-var two = document.getElementById('two');
-var three = document.getElementById('three');
-var four = document.getElementById('four');
-var five = document.getElementById('five');
+var newPaletteButton = document.querySelector('.new-palette')
+var saveButton = document.querySelector('.save-palette')
+var savedPalettes = document.querySelector('.saved-palettes')
+var hexCodeArray = document.querySelectorAll('.color-box')
+var hexCodeDisplay = document.querySelectorAll('.hex-code')
+var colorContainer = document.querySelector('.colors-container')
+var savedSection = document.querySelector('.saved-section-container')
 
-var hexOne = document.getElementById('hex-one');
-var hexTwo = document.getElementById('hex-two');
-var hexThree = document.getElementById('hex-three');
-var hexFour = document.getElementById('hex-four');
-var hexFive = document.getElementById('hex-five');
-
-var newPaletteButton = document.querySelector('.new-palette');
-var saveButton = document.querySelector('.save-palette');
-var savedPalettes = document.querySelector('.saved-palettes');
-var hexCodeArray = document.querySelectorAll('.color-box');
-var hexCodeDisplay = document.querySelectorAll('.hex-code');
-var colorContainer = document.querySelector('.colors-container');
-var savedSection = document.querySelector('.saved-section-container');
-
-window.addEventListener('load', displayPalette);
-newPaletteButton.addEventListener('click', displayPalette);
-saveButton.addEventListener('click', savePalette);
-colorContainer.addEventListener('click', lockColor);
+window.addEventListener('load', displayPalette)
+newPaletteButton.addEventListener('click', displayPalette)
+saveButton.addEventListener('click', savePalette)
+colorContainer.addEventListener('click', lockColor)
+savedSection.addEventListener('click', deletePalette)
 
 
-var currentPalette = new Palette();
-var savedPalettesList = [];
+var currentPalette = new Palette()
+var savedPalettesList = []
 
 function displayPalette() {
-  currentPalette.refreshColors();
+  currentPalette.refreshColors()
   for (var i = 0; i < hexCodeArray.length; i++) {
     hexCodeArray[i].style.backgroundColor = currentPalette.colors[i].hexCode
     if (currentPalette.colors[i].locked === true) {
@@ -40,10 +29,10 @@ function displayPalette() {
 }
 
 function savePalette() {
-  displaySavedPalette();
-  savedPalettesList.push(currentPalette);
-  currentPalette = new Palette;
-  displayPalette();
+  displaySavedPalette()
+  savedPalettesList.push(currentPalette)
+  currentPalette = new Palette
+  displayPalette()
 }
 
 function displaySavedPalette() {
@@ -52,41 +41,42 @@ function displaySavedPalette() {
   savedSection.appendChild(savedColorsContainer)
 
   for (var i = 0; i < currentPalette.colors.length; i++){
-    var copyColor = document.createElement('div');
-    copyColor.classList.add('saved-box');;
-    copyColor.style.backgroundColor = currentPalette.colors[i].hexCode;
-    savedColorsContainer.appendChild(copyColor);
+    var copyColor = document.createElement('div')
+    copyColor.classList.add('saved-box')
+    copyColor.style.backgroundColor = currentPalette.colors[i].hexCode
+    savedColorsContainer.appendChild(copyColor)
   }
 
-  var p = document.createElement('p');
-  p.innerText = String.fromCodePoint(128465);
-  savedColorsContainer.appendChild(p);
+  var button = document.createElement('button')
+  button.id = currentPalette.id
+  button.innerText = String.fromCodePoint(128465)
+  savedColorsContainer.appendChild(button)
 }
 
 function lockColor(event) {
-  var targetId = event.target.id;
-  var index;
+  var targetId = event.target.id
+  var index
 
   switch (targetId) {
     case "one":
-      index = 0;
-      break;
+      index = 0
+      break
     case "two":
-      index = 1;
-      break;
+      index = 1
+      break
     case "three":
-      index = 2;
-      break;
+      index = 2
+      break
     case "four":
-      index = 3;
-      break;
+      index = 3
+      break
     case "five":
-      index = 4;
-      break;
+      index = 4
+      break
     default: return
   }
 
-  var colorToLock = currentPalette.colors[index];
+  var colorToLock = currentPalette.colors[index]
   if(currentPalette.colors[index].locked === false) {
     hexCodeDisplay[index].innerText = colorToLock.hexCode + String.fromCodePoint(0x1F512)
     currentPalette.colors[index].locked = true
@@ -94,5 +84,16 @@ function lockColor(event) {
   else {
     hexCodeDisplay[index].innerText = colorToLock.hexCode + String.fromCodePoint(0x1F513)
     currentPalette.colors[index].locked = false
+  }
+}
+
+function deletePalette(event) {
+  for (var i = 0; i < savedPalettesList.length; i++) {
+    console.log(savedPalettesList[i].id)
+    console.log(event.target.parentNode)
+    if (savedPalettesList[i].id === Number(event.target.id)) {
+      savedPalettesList.splice(i, 1)
+      event.target.parentNode.remove()
+    }
   }
 }
