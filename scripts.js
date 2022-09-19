@@ -88,8 +88,6 @@ function lockColor(event) {
 
 function deletePalette(event) {
   for (var i = 0; i < savedPalettesList.length; i++) {
-    console.log(savedPalettesList[i].id)
-    console.log(event.target.parentNode)
     if (savedPalettesList[i].id === Number(event.target.id)) {
       savedPalettesList.splice(i, 1)
       event.target.parentNode.remove()

@@ -16,9 +16,7 @@ class Color {
 
   lockColor() {
     if(!this.locked) {
-      console.log(this.locked)
       this.locked = true
-      console.log(this.locked)
     } else {
       this.locked = false
     }
