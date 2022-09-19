@@ -1,4 +1,4 @@
-class Colors {
+class Color {
   constructor() {
     this.hexCode = this.randomHexCode();
     this.locked = false
@@ -12,5 +12,15 @@ class Colors {
       hexCode += characters[randomNum];
     }
     return hexCode;
+  }
+
+  lockColor() {
+    if(!this.locked) {
+      console.log(this.locked)
+      this.locked = true
+      console.log(this.locked)
+    } else {
+      this.locked = false
+    }
   }
 }

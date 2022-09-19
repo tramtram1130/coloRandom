@@ -1,6 +1,5 @@
 var newPaletteButton = document.querySelector('.new-palette')
 var saveButton = document.querySelector('.save-palette')
-var savedPalettes = document.querySelector('.saved-palettes')
 var hexCodeArray = document.querySelectorAll('.color-box')
 var hexCodeDisplay = document.querySelectorAll('.hex-code')
 var colorContainer = document.querySelector('.colors-container')
@@ -79,11 +78,11 @@ function lockColor(event) {
   var colorToLock = currentPalette.colors[index]
   if(currentPalette.colors[index].locked === false) {
     hexCodeDisplay[index].innerText = colorToLock.hexCode + String.fromCodePoint(0x1F512)
-    currentPalette.colors[index].locked = true
+    currentPalette.colors[index].lockColor()
   }
   else {
     hexCodeDisplay[index].innerText = colorToLock.hexCode + String.fromCodePoint(0x1F513)
-    currentPalette.colors[index].locked = false
+    currentPalette.colors[index].lockColor()
   }
 }
 
