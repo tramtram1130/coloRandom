@@ -15,11 +15,16 @@ var saveButton = document.querySelector('.save-palette')
 var savedPalettes = document.querySelector('.saved-palettes')
 var hexCodeArray = document.querySelectorAll('.color-box')
 var hexCodeDisplay = document.querySelectorAll('.hex-code')
+var colorContainer = document.querySelector('.colors-container')
+var savedSection = document.querySelector('.saved-section-container')
 
 console.log(hexCodeArray)
+window.addEventListener('load', displayPalette)
 newPaletteButton.addEventListener('click', displayPalette)
+saveButton.addEventListener('click', savePalette)
 
-var currentPalette = new Palette()
+var currentPalette = new Palette();
+var savedPalettesList = [];
 
 function displayPalette() {
   currentPalette.refreshColors()
@@ -33,4 +38,22 @@ function displayPalette() {
     }
   }
 }
-displayPalette()
+
+function savePalette() {
+  var savedColorsContainer = document.createElement('div')
+  savedColorsContainer.classList.add('saved-container')
+  savedSection.appendChild(savedColorsContainer)
+  for (var i = 0; i < currentPalette.colors.length; i++){
+    var copyColor = document.createElement('div')
+    copyColor.classList.add('saved-box')
+    copyColor.style.backgroundColor = currentPalette.colors[i].hexCode
+    savedColorsContainer.appendChild(copyColor)
+  }
+  savedPalettesList.push(currentPalette)
+  var p = document.createElement('p');
+  p.innerText = String.fromCodePoint(128465); // U+fe0f U+1f5d1
+  savedColorsContainer.appendChild(p);
+
+  currentPalette = new Palette;
+  displayPalette();
+}
