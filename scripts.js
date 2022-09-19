@@ -34,7 +34,7 @@ function displayPalette() {
     if (currentPalette.colors[i].locked === true) {
       hexCodeDisplay[i].innerText = currentPalette.colors[i].hexCode + String.fromCodePoint(0x1F512)
     }else{
-      hexCodeDisplay[i].innerText = currentPalette.colors[i].hexCode + String.fromCodePoint(0x1F513)
+      hexCodeDisplay[i].innerText = currentPalette.colors[i].hexCode + String.fromCodePoint(0x1F513) 
     }
   }
 }
